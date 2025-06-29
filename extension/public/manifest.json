@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Fokus",
+  "version": "1.0.0",
+  "description": "A focus mode extension to help you stay productive by blocking distracting websites",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Fokus - Focus Mode",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/assets/fonts/Rubik-Regular.ttf",
+        "src/assets/fonts/Rubik-Medium.ttf",
+        "src/assets/fonts/Rubik-Bold.ttf",
+        "src/assets/fonts/Rubik-Light.ttf",
+        "src/assets/fonts/Rubik-SemiBold.ttf",
+        "src/assets/fonts/Rubik-Black.ttf",
+        "src/assets/fonts/Rubik-ExtraBold.ttf"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+} 
